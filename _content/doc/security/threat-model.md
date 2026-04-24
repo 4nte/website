@@ -37,6 +37,13 @@ assumed to be hardened against panics and arbitrary resource consumption.
 Passing garbage to an API resulting in unexpected output is not considered a
 security issue.
 
+#### Environment Control
+
+It is assumed that the local system is safe. Attacks which rely on the OS already
+being compromised are not considered relevant. For instance we do not consider
+attacker control over the filesystem, environment variables, such as PATH, or
+memory access or control to be part of our model.
+
 ### Packages With Their Own Models
 
 * [encoding/json](/pkg/encoding/json/#hdr-Security_Considerations)
