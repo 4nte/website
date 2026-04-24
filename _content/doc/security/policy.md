@@ -15,9 +15,13 @@ All security bugs in the Go distribution should be reported by email to
 [security@golang.org](mailto:security@golang.org). This mail is delivered to
 the Go Security team.
 
-To ensure your report is not marked as spam, **please include the word
-"vulnerability"** anywhere in your email. Please use a descriptive subject line
-for your report email.
+Please format the subject of your email as "Vulnerability: {package name}:
+{one-line summary}", and avoid sending attachments in your email unless strictly
+necessary in order to avoid your message being marked as spam.
+
+Please keep reports succint, including a description of the issue you've found,
+the way in which you believe it can be exploited, and a small reproduction test
+case or program which demonstrates the issue.
 
 Your email will be acknowledged within 7 days, and you'll be kept up to date
 with the progress until resolution. Your issue will be fixed or made public
