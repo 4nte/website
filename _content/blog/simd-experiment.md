@@ -35,9 +35,9 @@ The new `simd` package hides these differences by removing fixed-size vectors fr
 4. and is easy to read and understand (even/especially if an LLM ends up writing the code).
 
 On platforms that lack SIMD instructions or that lack support in `archsimd`, all of the operations are emulated,
-so that can written using the `simd` package will always run.
+so that code written using the `simd` package will always run.
 
-To use this experimental package, set `GOEXPERIMENT=simd`, just like using the experimental `archsimd` package.
+To use this experimental package, set `GOEXPERIMENT=simd` at build time, just like using the experimental `archsimd` package.
 
 The `simd` vector types are just capitalized, plural, primitive types, for example `simd.Uint8s` or `simd.Float32s`. Vectors are loaded from and stored to slices, for example:
 
@@ -339,7 +339,9 @@ The constraint of supporting all platforms, including ones that we predict will 
 
 ## GODEBUG settings
 
-On platforms where there is some hardware support, behavior can be modified with GODEBUG, to make it easier to test `simd`-using code with various hardware configurations.  In Go 1.27, levels of SIMD support are roughly described by vector length:
+On platforms where there is some hardware support, behavior can be modified with `GODEBUG`, to make it easier to test `simd`-using code with various hardware configurations. You can set the `GODEBUG` environment variable prior to executing your program.
+
+In Go 1.27, levels of SIMD support are roughly described by vector length:
 
 * `GODEBUG=simd=0` means use emulation for SIMD operations even if the hardware support is available.
 * `GODEBUG=simd=128` means use 128-bit vectors and their features.  If the features aren’t available, panic immediately.
